@@ -1,0 +1,17 @@
+create database pmdemo;
+
+use pmdemo
+
+create table t_user(
+	id int primary key auto_increment,
+	username varchar(12),
+	password varchar(50)
+)default charset=utf8;
+
+create table t_pm (
+	id int primary key auto_increment,
+	sender_uid int,
+	receiver_uid int,
+	text varchar(255),
+	create_time datetime
+)default charset=utf8;
