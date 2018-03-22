@@ -101,7 +101,7 @@
 			"dataType": "json",
 			"success": function(obj) {
 				if (obj.state == 1) {
-					console.log('初始化的ajax')
+// 					console.log('初始化的ajax')
 					for (var i = 0; i < obj.data.length; i++) {
 						var hour = new Date(obj.data[i].createTime).getHours()
 						var minute = new Date(obj.data[i].createTime).getMinutes()
@@ -124,7 +124,7 @@
 						
 						lastId = obj.data[i].id
 					}
-					console.log("初始化最后一条id:" + lastId)
+// 					console.log("初始化最后一条id:" + lastId)
 				}
 			}
 		})
@@ -138,7 +138,7 @@
 				"dataType": "json",
 				"success": function(obj) {
 					if (obj.state == 1) {
-						console.log('更新的ajax')
+// 						console.log('更新的ajax')
 						console.log('obj.data.length:'+obj.data.length)
 						if (obj.data.length > 0) {
 							for (var i = 0; i < obj.data.length; i++) {
@@ -160,10 +160,12 @@
 												"</div>" +
 											"</div>"
 								$("#wrapper").append(newNode)
+								//将滚动条移动到底部:
+								$("#wrapper").scrollTop($("#wrapper").prop('scrollHeight'))
 								
 								lastId = obj.data[i].id
 							}
-							console.log("更新de最后一条id:" + lastId)
+// 							console.log("更新de最后一条id:" + lastId)
 						}
 					}
 				}
