@@ -108,13 +108,17 @@
 						var second = new Date(obj.data[i].createTime).getSeconds()
 						minute = minute < 10 ? "0"+minute : minute
 						var time = hour + ":" + minute + ":" + second
-						var bubbleStyle = obj.data[i].senderUid == ${sessionScope.user.id} ? "<div class='me'>" : "<div class='other'>"
+						var bubbleStyle = obj.data[i].senderUid == ${sessionScope.user.id} ? "<div class='right'>" : "<div class='left'>"
 						
-						var newNode = "<div class='outer'>" +
+						var newNode = "<div class='clearfloat'>" +
+											"<div class='author-name'>" +
+												"<small class='chat-date'>" + time + "</small>" +
+											"</div>" +
 											bubbleStyle +
-												"<p>" + obj.data[i].text + "</p>" +
-											"</div>" + 
-											"<p class='ptime'>" + time + "</p>" +
+												"<div class='chat-message'>" +
+													obj.data[i].text +
+												"</div>" +
+											"</div>" +
 										"</div>"
 						$("#wrapper").append(newNode)
 						
@@ -143,14 +147,18 @@
 								var second = new Date(obj.data[i].createTime).getSeconds()
 								minute = minute < 10 ? "0"+minute : minute
 								var time = hour + ":" + minute + ":" + second
-								var bubbleStyle = obj.data[i].senderUid == ${sessionScope.user.id} ? "<div class='me'>" : "<div class='other'>"
+								var bubbleStyle = obj.data[i].senderUid == ${sessionScope.user.id} ? "<div class='right'>" : "<div class='left'>"
 								
-								var newNode = "<div class='outer'>" +
-													bubbleStyle +
-														"<p>" + obj.data[i].text + "</p>" +
-													"</div>" + 
-													"<p class='ptime'>" + time + "</p>" +
-												"</div>"
+								var newNode = "<div class='clearfloat'>" +
+												"<div class='author-name'>" +
+													"<small class='chat-date'>" + time + "</small>" +
+												"</div>" +
+												bubbleStyle +
+													"<div class='chat-message'>" +
+														obj.data[i].text +
+													"</div>" +
+												"</div>" +
+											"</div>"
 								$("#wrapper").append(newNode)
 								
 								lastId = obj.data[i].id
