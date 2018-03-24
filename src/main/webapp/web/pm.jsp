@@ -175,6 +175,10 @@
 
 	//异步发送私信
 	function doSend() {
+		if ($("#text").val() == "") {
+			return
+		}
+		
 		$.ajax({
 			"url": "${pageContext.request.contextPath}/pm/sendPm.do",
 			"data": "senderUid=" + ${sessionScope.user.id} + "&receiverUid=" + ${param.receiverUid} + "&text=" + $("#text").val(),

@@ -15,3 +15,41 @@ create table t_pm (
 	text varchar(255),
 	create_time datetime
 )default charset=utf8;
+
+查看定时事件线程是否打开：
+SHOW VARIABLES LIKE '%event_scheduler%';
+
+
+打开定时事件线程：
+SET GLOBAL event_scheduler=1;
+
+关闭定时事件线程：
+SET GLOBAL event_scheduler=0;
+
+
+查看已有的定时事件任务：
+SHOW EVENTS;
+
+
+DROP event IF EXISTS e_delete_pm;
+CREATE EVENT e_delete_pm
+ON SCHEDULE
+EVERY 30 MINUTE
+DO
+DELETE FROM t_pm;
+
+
+启动定时器：
+ALTER EVENT e_delete_pm ON COMPLETION PRESERVE ENABLE;
+
+
+关闭定时器：
+ALTER EVENT e_delete_pm ON COMPLETION PRESERVE DISABLE;
+
+
+删除定时器：
+DROP EVENT IF EXISTS e_delete_pm;
+
+周期：
+YEAR | QUARTER | MONTH | DAY | HOUR | MINUTE | WEEK | SECOND | YEAR_MONTH | 
+DAY_HOUR | DAY_MINUTE | DAY_SECOND | HOUR_MINUTE | HOUR_SECOND | MINUTE_SECOND

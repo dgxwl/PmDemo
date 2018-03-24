@@ -23,4 +23,6 @@ public interface PmMapper {
 	 */
 	List<PrivateMessage> findNewPmById(@Param("id") Integer id, @Param("senderUid") Integer senderUid, 
 										@Param("receiverUid") Integer receiverUid);
+	
+	Integer deletePm(@Param("senderUid") Integer senderUid, @Param("receiverUid") Integer receiverUid);
 }

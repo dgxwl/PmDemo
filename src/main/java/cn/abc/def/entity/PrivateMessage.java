@@ -89,8 +89,7 @@ public class PrivateMessage {
 
 	@Override
 	public String toString() {
-		return "PrivateMessage [id=" + id + ", senderUid=" + senderUid + ", receiverUid=" + receiverUid + ", text="
-				+ text + ", createTime=" + createTime + "]";
+		return id + "," + senderUid + "," + receiverUid + "," + text + "," + createTime.getTime();
 	}
 
 	

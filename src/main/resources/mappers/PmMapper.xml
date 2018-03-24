@@ -31,6 +31,13 @@
 		WHERE
 			id>#{id} AND ((sender_uid=#{senderUid} and receiver_uid=#{receiverUid}) OR (sender_uid=#{receiverUid} and receiver_uid=#{senderUid}))
 	</select>
+	
+	<!-- Integer deletePm(Integer senderUid, Integer receiverUid) -->
+	<delete id="deletePm">
+		DELETE FROM
+			t_pm
+		WHERE sender_uid=#{senderUid} AND receiver_uid=#{receiverUid}
+	</delete>
 
 </mapper>
 
