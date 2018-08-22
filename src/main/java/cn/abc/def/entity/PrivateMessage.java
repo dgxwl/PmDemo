@@ -1,8 +1,9 @@
 package cn.abc.def.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class PrivateMessage {
+public class PrivateMessage implements Serializable {
 	
 	private Integer id;
 	private Integer senderUid;

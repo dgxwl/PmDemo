@@ -3,8 +3,8 @@ package cn.abc.def.controller;
 import java.util.Date;
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +17,8 @@ import cn.abc.def.service.IPmService;
 @RequestMapping("/pm")
 public class PmController extends BaseController {
 
-	@Resource
+	@Autowired
+	@Qualifier("pmServiceRedis")  //选择实现类
 	private IPmService pmService;
 	
 	@RequestMapping("/toPm.do")
@@ -28,6 +29,7 @@ public class PmController extends BaseController {
 	@RequestMapping("/sendPm.do")
 	@ResponseBody
 	public ResponseResult<Void> sendPm(Integer senderUid, Integer receiverUid, String text) {
+	
 		ResponseResult<Void> rr;
 		
 		try {
