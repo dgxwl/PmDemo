@@ -37,6 +37,7 @@
 	<bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"
 		p:connection-factory-ref="jedisConnFactory"></bean>
 	<bean class="cn.abc.def.utils.RedisUtil" destroy-method="clearRedis"></bean>
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
    
 </beans>
 

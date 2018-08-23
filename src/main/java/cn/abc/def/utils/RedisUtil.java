@@ -14,10 +14,11 @@ public class RedisUtil {
 
 	@Resource
 	private StringRedisTemplate stringRedisTemplate;
+	@Resource
+	private ObjectMapper objectMapper;
 
 	public void hset(String key, String field, Object o) {
 		try {
-			ObjectMapper objectMapper = new ObjectMapper();
 			stringRedisTemplate.boundHashOps(key).put(field, objectMapper.writeValueAsString(o));
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
@@ -34,7 +35,6 @@ public class RedisUtil {
 
 	public <T> T hget(String key, String field, Class<T> clazz) {
 		try {
-			ObjectMapper objectMapper = new ObjectMapper();
 			String text = hget(key, field);
 			if (text == null) {
 				return null;
