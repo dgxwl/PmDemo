@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import cn.abc.def.entity.PrivateMessage;
-import cn.abc.def.utils.RedisUtil;
+import cn.abc.def.redis.RedisCache;
 
 /**
  * Redis实现
@@ -19,7 +19,7 @@ import cn.abc.def.utils.RedisUtil;
 public class PmServiceRedis implements IPmService {
 	
 	@Resource
-	private RedisUtil redisUtil;
+	private RedisCache redisUtil;
 	
 	private volatile int id = 1;
 

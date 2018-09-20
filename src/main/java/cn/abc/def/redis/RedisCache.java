@@ -1,4 +1,4 @@
-package cn.abc.def.utils;
+package cn.abc.def.redis;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class RedisUtil {
+public class RedisCache {
 
 	@Resource
 	private StringRedisTemplate stringRedisTemplate;

@@ -26,7 +26,7 @@
 		 <!-- 连接Redis时候自动管理Redis连接池 -->
 		 <property name="usePool" value="true"/>
 		 <property name="hostName" value="127.0.0.1"></property>
-		 <!-- <property name="password" value="password" /> -->
+<!-- 		 <property name="password" value="password" /> -->
 	</bean>
     
 	<!-- redis template definition -->
@@ -36,7 +36,7 @@
 	</bean>
 	<bean id="stringRedisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate"
 		p:connection-factory-ref="jedisConnFactory"></bean>
-	<bean class="cn.abc.def.utils.RedisUtil" destroy-method="clearRedis"></bean>
+	<bean class="cn.abc.def.redis.RedisCache" destroy-method="clearRedis"></bean>
 	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"></bean>
    
 </beans>
