@@ -17,7 +17,9 @@
 				<td>${u.username}</td>
 				<td>
 					<c:if test="${u.id != sessionScope.user.id}">
-					<a href="${pageContext.request.contextPath}/pm/toPm.do?receiverUid=${u.id}&recvName=${u.username}">发送私信</a>
+<%-- 					<a href="${pageContext.request.contextPath}/pm/toPm.do?receiverUid=${u.id}&recvName=${u.username}">发送私信</a> --%>
+					<!-- websocket实现 -->
+					<a href="${pageContext.request.contextPath}/pm/toWspm.do?receiverUid=${u.id}&recvName=${u.username}">发送私信</a>
 					</c:if>
 				</td>
 			</tr>

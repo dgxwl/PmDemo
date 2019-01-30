@@ -26,6 +26,11 @@ public class PmController extends BaseController {
 		return "pm";
 	}
 	
+	@RequestMapping("/toWspm.do")
+	public String toWspm() {
+		return "wspm";
+	}
+	
 	@RequestMapping("/sendPm.do")
 	@ResponseBody
 	public ResponseResult<Void> sendPm(Integer senderUid, Integer receiverUid, String text) {
