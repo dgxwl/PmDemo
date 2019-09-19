@@ -31,6 +31,11 @@ public class PmController extends BaseController {
 		return "wspm";
 	}
 	
+	@RequestMapping("/toWspmImg.do")
+	public String toWspmImg() {
+		return "wspm2";
+	}
+	
 	@RequestMapping("/sendPm.do")
 	@ResponseBody
 	public ResponseResult<Void> sendPm(Integer senderUid, Integer receiverUid, String text) {
